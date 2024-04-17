@@ -1,30 +1,39 @@
 version: '3'
 
 services:
-  backend:
-    build:
-      context: ./api  
-    ports:
-      - "3000:3000"  
-    environment:
-      - MONGODB_URI=mongodb://mongo:27017/authentication 
-    depends_on:
-      - mongo  
-
   frontend:
-    build:
-      context: ./client  
+    build: ./client  
+    container_name: auth-client
     ports:
       - "80:80"  
     depends_on:
-      - backend  
+      - backend 
+    networks:
+      -authentication-network
 
-  mongo:
-    image: mongo:latest  
+
+  backend:
+    build: Dockerfile 
+    container_name: auth-back
+    ports:
+      - "3000:3000" 
+    depends_on:
+      - database
+    networks:
+       -authentication-network 
+
+   
+
+  database:
+    image: mongo
+    container_name: mongo-db 
     ports:
       - "27017:27017"  
     volumes:
-      - mongo-data:/data/db  
+      - mongo-data:/data/db
+    networks:
+      -authentication-network  
 
-volumes:
-  mongo-data:  
+networks:
+  authentication-network:
+    driver: bridge  
