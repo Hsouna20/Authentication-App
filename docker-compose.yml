@@ -2,38 +2,39 @@ version: '3'
 
 services:
   frontend:
-    build: ./client  
+    build: ./client
     container_name: auth-client
     ports:
-      - "80:80"  
+      - "80:80"
     depends_on:
-      - backend 
+      - backend
     networks:
-      -authentication-network
-
+      - authentication-network
 
   backend:
-    build: Dockerfile 
+    build: .
     container_name: auth-back
     ports:
-      - "3000:3000" 
+      - "3000:3000"
     depends_on:
-      - database
+      - mongo
     networks:
-       -authentication-network 
+      - authentication-network
 
-   
-
-  database:
-    image: mongo
-    container_name: mongo-db 
+  mongo:
+    image: mongo:4.4.6
+    container_name: mongo
     ports:
-      - "27017:27017"  
+      - "27017:27017"
     volumes:
       - mongo-data:/data/db
     networks:
-      -authentication-network  
+      - authentication-network
+
+volumes:
+  mongo-data:
+    
 
 networks:
   authentication-network:
-    driver: bridge  
+    driver: bridge
