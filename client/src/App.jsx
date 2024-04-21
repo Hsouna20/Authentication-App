@@ -8,6 +8,7 @@ import Header from './components/Header'
 import FooterCom from './components/footer'
 import PrivateRoute from './components/PrivateRoute'
 import Dashbord from './pages/Dashbord'
+import Contact from './pages/Contact'
 
 
 
@@ -19,6 +20,7 @@ export default function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/about' element={<About/>}/>
         <Route path='/signin' element={<SignIn/>}/>
+        <Route path='/contact' element={<Contact/>}/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route element={<PrivateRoute />}>
           <Route path='/dashboard' element={<Dashbord />} />

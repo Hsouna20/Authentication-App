@@ -49,7 +49,7 @@ function SignIn() {
             App
           </Link>
           <p className='text-sm mt-5'>
-            This is a Géolocalisation App developed By Mrabet Hassen using MERN stack 
+          Welcome to our IP Geolocation Application! 
           </p>
         </div>
         {/* right */}

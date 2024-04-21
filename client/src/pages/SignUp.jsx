@@ -49,7 +49,7 @@ function SignUp() {
             App
           </Link>
           <p className='text-sm mt-5'>
-            This is a Géolocalisation App developed By Mrabet Hassen using MERN stack 
+          Welcome to our IP Geolocation Application!
           </p>
         </div>
         {/* right */}
@@ -101,7 +101,7 @@ function SignUp() {
           </form>
           <div className='flex gap-2 text-sm mt-5'>
             <span>Have an account?</span>
-            <Link to='/sign-in' className='text-blue-500'>
+            <Link to='/signin' className='text-blue-500'>
               Sign In
             </Link>
           </div>
