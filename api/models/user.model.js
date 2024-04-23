@@ -21,6 +21,10 @@ const userSchema = new mongoose.Schema(
         default:
           'https://th.bing.com/th/id/OIP.jo-o9weVfRQHgx6iXvV9wAHaEq?rs=1&pid=ImgDetMain',
       },
+      isAdmin:{
+        type: Boolean , 
+        default: false
+      }
   },
   { timestamps: true }
 );
