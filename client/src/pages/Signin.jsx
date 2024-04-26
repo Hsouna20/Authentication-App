@@ -30,7 +30,7 @@ function SignIn() {
       }
       setLoading(false);
       if(res.ok) {
-        navigate('/');
+        navigate('/welcome');
       }
     } catch (error) {
       setErrorMessage(error.message);
